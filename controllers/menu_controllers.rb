@@ -77,11 +77,21 @@ class MenuController
   def search_entries
   end
 
+  def view_entry_by_number
+    print "Enter the number you want to view: "
+    selection = gets.chomp.to_i
+      if selection <= address_book.entries.length && selection > 0
+          puts address_book.entries[selection - 1]
+      else
+          puts "Sorry, that is an invalid entry"
+          view_entry_by_number
+      end
+  end
+
   def read_csv
   end
 
   def entry_submenu(entry)
-  # #16
   puts "n - next entry"
   puts "d - delete entry"
   puts "e - edit this entry"
